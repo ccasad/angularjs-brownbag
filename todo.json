@@ -1,0 +1,6 @@
+[
+	{"id": 1, "text": "Wash the car", "done": false},
+	{"id": 2, "text": "Mow and weed the lawn", "done": false},
+	{"id": 3, "text": "Take the kids to soccer practice", "done": true},
+	{"id": 4, "text": "Go to the groceries store", "done": false}
+]

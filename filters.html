@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" data-ng-app="bbApp">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>AngularJS Brownbag Examples :: Filters</title>
+
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.min.js"></script>
+	<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+  <style type="text/css">
+	  .page-header {
+	  	margin-top: 10px;
+	  }
+  </style>
+</head>
+<body data-ng-controller="BbMain">
+
+	<div class="container">
+
+		<div class="page-header">
+			<h1>Filters</h1>
+		</div>
+
+		<div class="row">
+			<div class="col-md-12">
+
+				<form role="form">
+					<div class="form-group">
+						<label for="city">Filter City:</label>
+						<input type="text" data-ng-model="cityfilter" class="form-control" id="city">
+					</div>
+				</form>
+
+				<ul>
+				  <li data-ng-repeat="location in locations | filter:cityfilter ">
+				  	{{ location.city + ', ' + location.country }}
+					</li>
+				</ul>
+
+			</div>
+		</div>
+
+	</div>
+	
+</body>
+</html>
+
+<script type="text/javascript">
+var bbApp = angular.module('bbApp', []);
+
+bbApp.controller('BbMain', ['$scope',
+  function ($scope) {
+  	$scope.locations = [
+			{"id": 1, "city": "Milan", "country": "Italy"},
+			{"id": 2, "city": "Buffalo", "country": "United States"},
+			{"id": 3, "city": "Rota", "country": "Spain"},
+			{"id": 4, "city": "Liverpool", "country": "England"},
+			{"id": 5, "city": "Cannes", "country": "France"}
+		];
+  }
+]);
+</script>
